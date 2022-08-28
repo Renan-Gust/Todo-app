@@ -22,30 +22,36 @@ button {
   cursor: pointer;
 }
 
-.container{
-  height: 100vh;
-  width: 100vw;
-}
-
-.wrapper{
-  width: 100%;
+.container,
+.wrapper,
+.content{
+  min-height: 100vh;
   height: 100%;
 }
 
 .bg-photo{
-  height: 35%;
-  background-image: url('../public/images/bg-desktop-dark.jpg');
+  height: 35vh;
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
-.content{
-  height: 100%;
+.container.dark .bg-photo{
+  background-image: url('../public/images/bg-desktop-dark.jpg');
+}
+
+.container.light .bg-photo{
+  background-image: url('../public/images/bg-desktop-light.jpg');
+}
+
+.container.dark .content{
   background: hsl(235, 21%, 11%);
 }
 
+.container.light .content{
+  background: hsl(0, 0%, 98%);
+}
+
 .todo-wrapper{
-  height: calc(65% + 164px);
   width: 40%;
   margin: 0 auto;
 
@@ -57,5 +63,15 @@ button {
   .todo-wrapper{
     width: 100%;
     padding: 0 30px;
+  }
+}
+
+@media screen and (prefers-color-scheme: light) {
+  .container.dark .bg-photo{
+    background-image: url('../public/images/bg-desktop-light.jpg');
+  }
+
+  .container.dark .content{
+    background: hsl(0, 0%, 98%);
   }
 }

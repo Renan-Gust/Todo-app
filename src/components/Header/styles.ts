@@ -12,11 +12,19 @@ export const Content = styled.div`
         letter-spacing: 16px;
         font-size: 3rem;
     }
+`
 
-    img{
-        object-fit: contain;
-        cursor: pointer;
-        width: 30px;
-        height: 30px;
+export const Theme = styled.img<{ img: string; }>`
+    background-image: url(${props => props.img});
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    padding: 15px 15px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+    @media screen and (prefers-color-scheme: light) {
+        background-image: url('../../../public/images/icon-moon.svg');
     }
 `

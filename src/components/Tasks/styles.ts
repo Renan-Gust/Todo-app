@@ -30,6 +30,11 @@ export const NavContent = styled.div`
     p.selected{
         color: ${props => props.theme.colors.BrightBlue};
     }
+
+    p:hover{
+        transition: all 0.3s ease;
+        color: ${props => props.theme.colors.lightTheme.VeryLightGray};
+    }
     
     @media(max-width: 1100px){
         &:first-child.nav{
@@ -45,18 +50,40 @@ export const Task = styled.div`
     display: flex;
     align-items: center;
     gap: 20px;
-
     border-bottom: 1px solid ${props => props.theme.colors.darkTheme.VeryDarkGrayishBlue};
-    cursor: pointer;
 
     p{
         flex: 1;
         color: ${props => props.theme.colors.darkTheme.LightGrayishBlue};
+        cursor: pointer;
+    }
+
+    img.deleteTask{
+        display: none;
+        cursor: pointer;
+    }
+
+    &:hover{
+        img.deleteTask{
+            display: block;
+        }
     }
 
     &.completed{
         > div{
+            background: linear-gradient(141deg, ${props => props.theme.colors.BackgroundLinearGradient1} 0%, ${props => props.theme.colors.BackgroundLinearGradient2} 100%);
 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img{
+                width: 15px;
+            }
+
+            &:hover{
+                border: 0;
+            }
         }
 
         p{
@@ -66,11 +93,18 @@ export const Task = styled.div`
     }
 `
 
-export const Circle = styled.div`
+export const Checked = styled.div`
     width: 25px;
     height: 25px;
     border: 1px solid ${props => props.theme.colors.darkTheme.VeryDarkGrayishBlue};
     border-radius: 50%;
+    cursor: pointer;
+
+    &:hover{
+        transition: all 0.3s ease;
+        border-width: 1.5px;
+        border-color: ${props => props.theme.colors.BackgroundLinearGradient1};
+    }
 `
 
 // Nav Mobile

@@ -1,33 +1,37 @@
 import * as C from './styles'
 
+import iconCheck from '../../../public/images/icon-check.svg'
+import iconCross from '../../../public/images/icon-cross.svg'
+
 export function Tasks(){
     return(
         <>
             <C.Container>
                 <C.Tasks>
                     <C.Task className="completed">
-                        <C.Circle></C.Circle>
+                        <C.Checked>
+                            <img src={iconCheck} alt="icon check" />
+                        </C.Checked>
                         <p>Jog around the park 3x</p>
+
+                        <img className="deleteTask" src={iconCross} alt="icon cross" />
                     </C.Task>
                     <C.Task>
-                        <C.Circle></C.Circle>
+                        <C.Checked>
+                            {/* <img src={iconCheck} alt="iconCheck" /> */}
+                        </C.Checked>
                         <p>Jog around the park 3x</p>
+                        <img className="deleteTask" src={iconCross} alt="icon cross" />
                     </C.Task>
                     <C.Task>
-                        <C.Circle></C.Circle>
+                        <C.Checked></C.Checked>
                         <p>Jog around the park 3x</p>
+                        <img className="deleteTask" src={iconCross} alt="icon cross" />
                     </C.Task>
                     <C.Task>
-                        <C.Circle></C.Circle>
+                        <C.Checked></C.Checked>
                         <p>Jog around the park 3x</p>
-                    </C.Task>
-                    <C.Task>
-                        <C.Circle></C.Circle>
-                        <p>Jog around the park 3x</p>
-                    </C.Task>
-                    <C.Task>
-                        <C.Circle></C.Circle>
-                        <p>Jog around the park 3x</p>
+                        <img className="deleteTask" src={iconCross} alt="icon cross" />
                     </C.Task>
                 </C.Tasks>
 

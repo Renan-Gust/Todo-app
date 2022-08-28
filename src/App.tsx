@@ -3,8 +3,16 @@ import { CreateTask } from "./components/CreateTask"
 import { Tasks } from "./components/Tasks"
 
 function App(){
+    let theme = "dark"
+
+    if(localStorage.getItem("theme") !== null){
+        if(localStorage.getItem("theme") === "light"){
+            theme = "light"
+        }
+    }
+
     return(
-        <div className="container">
+        <div className={`container ${theme}`}>
             <div className="wrapper">
                 <div className="content">
                     <div className="bg-photo"></div>
