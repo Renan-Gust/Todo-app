@@ -1,9 +1,15 @@
+import { useContext } from 'react'
+
 import * as C from './styles'
 
-import iconSun from '../../../public/images/icon-sun.svg'
-import iconMoon from '../../../public/images/icon-moon.svg'
+import iconSun from '/images/icon-sun.svg'
+import iconMoon from '/images/icon-moon.svg'
+
+import { Context } from '../../contexts/Context'
 
 export function Header() {
+    const { state, dispatch } = useContext(Context)
+
     let image = iconSun
 
     if(localStorage.getItem("theme") !== null){
@@ -15,8 +21,9 @@ export function Header() {
     return(
         <C.Header>
             <C.Content>
-                <h1>TODO</h1>
-                <C.Theme img={image} />
+                {state.theme}
+                {/* <h1>TODO</h1> */}
+                {/* <C.Theme img={image} /> */}
             </C.Content>
         </C.Header>
     )

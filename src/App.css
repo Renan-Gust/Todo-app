@@ -36,11 +36,11 @@ button {
 }
 
 .container.dark .bg-photo{
-  background-image: url('../public/images/bg-desktop-dark.jpg');
+  background-image: url('/images/bg-desktop-dark.jpg');
 }
 
 .container.light .bg-photo{
-  background-image: url('../public/images/bg-desktop-light.jpg');
+  background-image: url('/images/bg-desktop-light.jpg');
 }
 
 .container.dark .content{
@@ -68,7 +68,7 @@ button {
 
 @media screen and (prefers-color-scheme: light) {
   .container.dark .bg-photo{
-    background-image: url('../public/images/bg-desktop-light.jpg');
+    background-image: url('/images/bg-desktop-light.jpg');
   }
 
   .container.dark .content{

@@ -25,6 +25,6 @@ export const Theme = styled.img<{ img: string; }>`
     cursor: pointer;
 
     @media screen and (prefers-color-scheme: light) {
-        background-image: url('../../../public/images/icon-moon.svg');
+        background-image: url('/images/icon-moon.svg');
     }
 `

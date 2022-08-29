@@ -58,13 +58,15 @@ export const Task = styled.div`
         cursor: pointer;
     }
 
-    img.deleteTask{
+    img.deleteTask,
+    img.infoTask{
         display: none;
         cursor: pointer;
     }
 
     &:hover{
-        img.deleteTask{
+        img.deleteTask,
+        img.infoTask{
             display: block;
         }
     }

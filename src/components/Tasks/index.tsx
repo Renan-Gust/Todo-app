@@ -1,7 +1,8 @@
 import * as C from './styles'
 
-import iconCheck from '../../../public/images/icon-check.svg'
-import iconCross from '../../../public/images/icon-cross.svg'
+import iconCheck from '/images/icon-check.svg'
+import iconCross from '/images/icon-cross.svg'
+import iconInfo from '/images/icon-info.svg'
 
 export function Tasks(){
     return(
@@ -15,6 +16,7 @@ export function Tasks(){
                         <p>Jog around the park 3x</p>
 
                         <img className="deleteTask" src={iconCross} alt="icon cross" />
+                        <img className="infoTask" src={iconInfo} alt="icon info" />
                     </C.Task>
                     <C.Task>
                         <C.Checked>
