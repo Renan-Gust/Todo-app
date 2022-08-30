@@ -1,17 +1,17 @@
 import { reducerActionType } from "../types/reducerActionType"
 
 export type ThemeType = {
-    theme: string;
+    status: "dark" | "light";
 }
 
 export const themeInitialState: ThemeType = {
-    theme: "dark"
+    status: "dark"
 }
 
 export const themeReducer = (state: ThemeType, action: reducerActionType) => {
     switch (action.type) {
         case 'CHANGE_THEME':
-            return {...state, name: action.payload.theme}
+            return {...state, status: action.payload.status}
         break
     }
 

@@ -21,9 +21,11 @@ export function Header() {
     return(
         <C.Header>
             <C.Content>
-                {state.theme}
-                {/* <h1>TODO</h1> */}
-                {/* <C.Theme img={image} /> */}
+                <>
+                    {console.log(state.theme.status)}
+                    <h1>TODO</h1>
+                    <C.Theme img={image} />
+                </>
             </C.Content>
         </C.Header>
     )
