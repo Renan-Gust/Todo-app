@@ -1,15 +1,10 @@
 import { Header } from "./components/Header"
 import { CreateTask } from "./components/CreateTask"
 import { Tasks } from "./components/Tasks"
+import { useTheme } from "./contexts/Theme"
 
 function App(){
-    let theme = "dark"
-
-    if(localStorage.getItem("theme") !== null){
-        if(localStorage.getItem("theme") === "light"){
-            theme = "light"
-        }
-    }
+    const { theme } = useTheme()
 
     return(
         <div className={`container ${theme}`}>

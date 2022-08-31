@@ -4,12 +4,16 @@ import iconCheck from '/images/icon-check.svg'
 import iconCross from '/images/icon-cross.svg'
 import iconInfo from '/images/icon-info.svg'
 
+import { useTheme } from '../../contexts/Theme'
+
 export function Tasks(){
+    const { theme } = useTheme()
+
     return(
         <>
-            <C.Container>
+            <C.Container className={theme}>
                 <C.Tasks>
-                    <C.Task className="completed">
+                    <C.Task className={`completed ${theme}`}>
                         <C.Checked>
                             <img src={iconCheck} alt="icon check" />
                         </C.Checked>
@@ -18,35 +22,25 @@ export function Tasks(){
                         <img className="deleteTask" src={iconCross} alt="icon cross" />
                         <img className="infoTask" src={iconInfo} alt="icon info" />
                     </C.Task>
-                    <C.Task>
-                        <C.Checked>
-                            {/* <img src={iconCheck} alt="iconCheck" /> */}
-                        </C.Checked>
-                        <p>Jog around the park 3x</p>
-                        <img className="deleteTask" src={iconCross} alt="icon cross" />
-                    </C.Task>
-                    <C.Task>
+                    <C.Task className={theme}>
                         <C.Checked></C.Checked>
                         <p>Jog around the park 3x</p>
+
                         <img className="deleteTask" src={iconCross} alt="icon cross" />
-                    </C.Task>
-                    <C.Task>
-                        <C.Checked></C.Checked>
-                        <p>Jog around the park 3x</p>
-                        <img className="deleteTask" src={iconCross} alt="icon cross" />
+                        <img className="infoTask" src={iconInfo} alt="icon info" />
                     </C.Task>
                 </C.Tasks>
 
                 <C.Footer>
                     <C.FooterContent>
                         <div className="itemsLeft">5 items left</div>
-                        <C.Nav>
+                        <C.Nav className={theme}>
                             <C.NavContent className="nav">
                                 <p className="all selected">All</p>
                                 <p className="active">Active</p>
                                 <p className="completed">Completed</p>
                             </C.NavContent>
-                            <C.NavContent>
+                            <C.NavContent >
                                 <p className="clearCompleted">Clear Completed</p>
                             </C.NavContent>
                         </C.Nav>
@@ -54,16 +48,16 @@ export function Tasks(){
                 </C.Footer>
             </C.Container>
 
-            <NavMobile />
+            <NavMobile theme={theme} />
         </>
     )
 }
 
-function NavMobile(){
+function NavMobile({ theme }: any) {
     return(
-        <C.NavMobile>
+        <C.NavMobile className={theme}>
             <C.Content>
-                <C.Nav>
+                <C.Nav className={theme}>
                     <C.NavContent>
                         <p className="all selected">All</p>
                         <p className="active">Active</p>

@@ -4,6 +4,10 @@ export const Container = styled.section`
     background: ${props => props.theme.colors.darkTheme.VeryDarkDesaturatedBlue};
     border-radius: 4px;
     margin-top: 30px;
+
+    &.light{
+       background: ${props => props.theme.colors.lightTheme.VeryLightGray};
+    }
 `
 
 export const Content = styled.div`
@@ -20,6 +24,10 @@ export const Content = styled.div`
         color: ${props => props.theme.colors.lightTheme.VeryLightGray};
     }
 
+    input.light{
+        color: ${props => props.theme.colors.darkTheme.VeryDarkBlue};
+    }
+
     input::placeholder {
         color: ${props => props.theme.colors.darkTheme.DarkGrayishBlue};
     }
@@ -30,4 +38,8 @@ export const Circle = styled.div`
     height: 25px;
     border: 1px solid ${props => props.theme.colors.darkTheme.VeryDarkGrayishBlue};
     border-radius: 50%;
+
+    &.light{
+       border-color: ${props => props.theme.colors.lightTheme.LightGrayishBlue};
+    }
 `

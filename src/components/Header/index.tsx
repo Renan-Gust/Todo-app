@@ -1,31 +1,31 @@
-import { useContext } from 'react'
-
 import * as C from './styles'
 
 import iconSun from '/images/icon-sun.svg'
 import iconMoon from '/images/icon-moon.svg'
 
-import { Context } from '../../contexts/Context'
+import { useTheme } from '../../contexts/Theme'
 
 export function Header() {
-    const { state, dispatch } = useContext(Context)
+    const { theme, setTheme } = useTheme()
 
-    let image = iconSun
+    let image = null
+    theme === "dark" ? image = iconSun : image = iconMoon
 
-    if(localStorage.getItem("theme") !== null){
-        if(localStorage.getItem("theme") === "light"){
-            image = iconMoon
+    function handleChangeTheme(){
+        if(theme === "dark"){
+            setTheme("light")
+            localStorage.setItem("theme", JSON.stringify("light"))
+        } else{
+            setTheme("dark")
+            localStorage.setItem("theme", JSON.stringify("dark"))
         }
     }
 
     return(
         <C.Header>
             <C.Content>
-                <>
-                    {console.log(state.theme.status)}
-                    <h1>TODO</h1>
-                    <C.Theme img={image} />
-                </>
+                <h1>TODO</h1>
+                <C.Theme img={image} onClick={handleChangeTheme} />
             </C.Content>
         </C.Header>
     )

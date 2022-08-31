@@ -4,6 +4,12 @@ export const Container = styled.section`
     background: ${props => props.theme.colors.darkTheme.VeryDarkDesaturatedBlue};
     border-radius: 4px;
     margin-top: 30px;
+
+    box-shadow: 5px 5px 44px 3px rgb(37 39 60 / 19%);
+
+    &.light{
+        background: ${props => props.theme.colors.lightTheme.VeryLightGray};
+    }
 `
 
 export const Footer = styled.footer`
@@ -20,6 +26,10 @@ export const FooterContent = styled.div`
 export const Nav = styled.nav`
     display: flex;
     gap: 30px;
+
+    &.light p:hover{
+        color: ${props => props.theme.colors.darkTheme.VeryDarkBlue};
+    }
 `
 
 export const NavContent = styled.div`
@@ -51,6 +61,18 @@ export const Task = styled.div`
     align-items: center;
     gap: 20px;
     border-bottom: 1px solid ${props => props.theme.colors.darkTheme.VeryDarkGrayishBlue};
+
+    &.light{
+        border-bottom-color: ${props => props.theme.colors.darkTheme.LightGrayishBlue};
+    }
+
+    &.light p{
+        color: ${props => props.theme.colors.darkTheme.VeryDarkBlue};
+    }
+
+    &.light > div{
+        border-color: ${props => props.theme.colors.lightTheme.LightGrayishBlue};
+    }
 
     p{
         flex: 1;
@@ -119,6 +141,7 @@ export const NavMobile = styled.footer`
     margin-top: 30px;
 
     font-size: 0.9rem;
+    box-shadow: 5px 5px 44px 3px rgb(37 39 60 / 19%);
 
     nav{
         justify-content: center;
@@ -126,6 +149,10 @@ export const NavMobile = styled.footer`
 
     @media(max-width: 1100px){
         display: block;
+    }
+
+    &.light{
+        background: ${props => props.theme.colors.lightTheme.VeryLightGray};
     }
 `
 
