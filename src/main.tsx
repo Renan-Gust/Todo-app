@@ -7,14 +7,14 @@ import './App.css'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './colors'
 
-import { ThemeContextProvider } from './contexts/Theme'
+import { ContextProvider } from './contexts/Context'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ThemeContextProvider>
+    <ContextProvider>
       <ThemeProvider theme={theme}>
         <App />
       </ThemeProvider>
-    </ThemeContextProvider>
+    </ContextProvider>
   </React.StrictMode>
 )

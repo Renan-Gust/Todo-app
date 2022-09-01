@@ -1,7 +1,7 @@
 import { Header } from "./components/Header"
 import { CreateTask } from "./components/CreateTask"
 import { Tasks } from "./components/Tasks"
-import { useTheme } from "./contexts/Theme"
+import { useTheme } from "./contexts/Context"
 
 function App(){
     const { theme } = useTheme()

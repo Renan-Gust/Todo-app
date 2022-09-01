@@ -3,7 +3,7 @@ import * as C from './styles'
 import iconSun from '/images/icon-sun.svg'
 import iconMoon from '/images/icon-moon.svg'
 
-import { useTheme } from '../../contexts/Theme'
+import { useTheme } from '../../contexts/Context'
 
 export function Header() {
     const { theme, setTheme } = useTheme()
