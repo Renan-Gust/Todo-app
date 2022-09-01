@@ -8,6 +8,14 @@ export const Container = styled.section`
     &.light{
        background: ${props => props.theme.colors.lightTheme.VeryLightGray};
     }
+
+    &.dark{
+        background: ${props => props.theme.colors.darkTheme.VeryDarkDesaturatedBlue};
+    }
+
+    @media screen and (prefers-color-scheme: light) {
+        background: ${props => props.theme.colors.lightTheme.VeryLightGray};
+    }
 `
 
 export const Content = styled.div`
@@ -24,12 +32,22 @@ export const Content = styled.div`
         color: ${props => props.theme.colors.lightTheme.VeryLightGray};
     }
 
+    input::placeholder {
+        color: ${props => props.theme.colors.darkTheme.DarkGrayishBlue};
+    }
+
     input.light{
         color: ${props => props.theme.colors.darkTheme.VeryDarkBlue};
     }
 
-    input::placeholder {
-        color: ${props => props.theme.colors.darkTheme.DarkGrayishBlue};
+    input.dark{
+        color: ${props => props.theme.colors.lightTheme.VeryLightGray};
+    }
+
+    @media screen and (prefers-color-scheme: light) {
+        input{
+            color: ${props => props.theme.colors.darkTheme.VeryDarkBlue};
+        }
     }
 `
 
@@ -41,5 +59,13 @@ export const Circle = styled.div`
 
     &.light{
        border-color: ${props => props.theme.colors.lightTheme.LightGrayishBlue};
+    }
+
+    &.dark{
+        border: 1px solid ${props => props.theme.colors.darkTheme.VeryDarkGrayishBlue};
+    }
+
+    @media screen and (prefers-color-scheme: light) {
+        border-color: ${props => props.theme.colors.lightTheme.LightGrayishBlue};
     }
 `

@@ -33,6 +33,7 @@ button {
   height: 35vh;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  background-image: url('/images/bg-desktop-dark.jpg');
 }
 
 .container.dark .bg-photo{
@@ -41,6 +42,10 @@ button {
 
 .container.light .bg-photo{
   background-image: url('/images/bg-desktop-light.jpg');
+}
+
+.container .content{
+  background: hsl(235, 21%, 11%);
 }
 
 .container.dark .content{
@@ -67,11 +72,11 @@ button {
 }
 
 @media screen and (prefers-color-scheme: light) {
-  .container.dark .bg-photo{
+  .container .bg-photo{
     background-image: url('/images/bg-desktop-light.jpg');
   }
 
-  .container.dark .content{
+  .container .content{
     background: hsl(0, 0%, 98%);
   }
 }

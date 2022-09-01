@@ -24,6 +24,10 @@ export const Theme = styled.img<{ img: string; }>`
     height: 30px;
     cursor: pointer;
 
+    &.dark{
+        background-image: url('/images/icon-sun.svg');
+    }
+
     @media screen and (prefers-color-scheme: light) {
         background-image: url('/images/icon-moon.svg');
     }

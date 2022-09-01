@@ -8,8 +8,10 @@ import { useTheme } from '../../contexts/Theme'
 export function Header() {
     const { theme, setTheme } = useTheme()
 
-    let image = null
-    theme === "dark" ? image = iconSun : image = iconMoon
+    let image = iconSun
+    if(theme){
+        theme === "dark" ? image = iconSun : image = iconMoon
+    }
 
     function handleChangeTheme(){
         if(theme === "dark"){
@@ -25,7 +27,7 @@ export function Header() {
         <C.Header>
             <C.Content>
                 <h1>TODO</h1>
-                <C.Theme img={image} onClick={handleChangeTheme} />
+                <C.Theme img={image} onClick={handleChangeTheme} className={theme} />
             </C.Content>
         </C.Header>
     )

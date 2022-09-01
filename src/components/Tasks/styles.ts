@@ -10,6 +10,14 @@ export const Container = styled.section`
     &.light{
         background: ${props => props.theme.colors.lightTheme.VeryLightGray};
     }
+
+    &.dark{
+        background: ${props => props.theme.colors.darkTheme.VeryDarkDesaturatedBlue};
+    }
+
+    @media screen and (prefers-color-scheme: light) {
+        background: ${props => props.theme.colors.lightTheme.VeryLightGray};
+    }
 `
 
 export const Footer = styled.footer`
@@ -27,8 +35,23 @@ export const Nav = styled.nav`
     display: flex;
     gap: 30px;
 
+    p:hover{
+        transition: all 0.3s ease;
+        color: ${props => props.theme.colors.lightTheme.VeryLightGray};
+    }
+
     &.light p:hover{
         color: ${props => props.theme.colors.darkTheme.VeryDarkBlue};
+    }
+
+    &.dark p:hover{
+        color: ${props => props.theme.colors.lightTheme.VeryLightGray};
+    }
+
+    @media screen and (prefers-color-scheme: light) {
+        p:hover{
+            color: ${props => props.theme.colors.darkTheme.VeryDarkBlue};
+        }
     }
 `
 
@@ -39,11 +62,6 @@ export const NavContent = styled.div`
 
     p.selected{
         color: ${props => props.theme.colors.BrightBlue};
-    }
-
-    p:hover{
-        transition: all 0.3s ease;
-        color: ${props => props.theme.colors.lightTheme.VeryLightGray};
     }
     
     @media(max-width: 1100px){
@@ -61,18 +79,6 @@ export const Task = styled.div`
     align-items: center;
     gap: 20px;
     border-bottom: 1px solid ${props => props.theme.colors.darkTheme.VeryDarkGrayishBlue};
-
-    &.light{
-        border-bottom-color: ${props => props.theme.colors.darkTheme.LightGrayishBlue};
-    }
-
-    &.light p{
-        color: ${props => props.theme.colors.darkTheme.VeryDarkBlue};
-    }
-
-    &.light > div{
-        border-color: ${props => props.theme.colors.lightTheme.LightGrayishBlue};
-    }
 
     p{
         flex: 1;
@@ -115,6 +121,44 @@ export const Task = styled.div`
             color: ${props => props.theme.colors.darkTheme.DarkGrayishBlue};
         }
     }
+
+    &.light{
+        border-bottom-color: ${props => props.theme.colors.darkTheme.LightGrayishBlue};
+    }
+
+    &.light p{
+        color: ${props => props.theme.colors.darkTheme.VeryDarkBlue};
+    }
+
+    &.light > div{
+        border-color: ${props => props.theme.colors.lightTheme.LightGrayishBlue};
+    }
+
+    
+
+    &.dark{
+        border-bottom: 1px solid ${props => props.theme.colors.darkTheme.VeryDarkGrayishBlue};
+    }
+
+    &.dark p{
+        color: ${props => props.theme.colors.darkTheme.LightGrayishBlue};
+    }
+
+    &.dark > div{
+        border-color: ${props => props.theme.colors.darkTheme.VeryDarkGrayishBlue};
+    }
+
+    @media screen and (prefers-color-scheme: light) {
+        border-bottom-color: ${props => props.theme.colors.darkTheme.LightGrayishBlue};
+
+        p{
+            color: ${props => props.theme.colors.darkTheme.VeryDarkBlue};
+        }
+
+        > div{
+            border-color: ${props => props.theme.colors.lightTheme.LightGrayishBlue};
+        }
+    }
 `
 
 export const Checked = styled.div`
@@ -127,7 +171,7 @@ export const Checked = styled.div`
     &:hover{
         transition: all 0.3s ease;
         border-width: 1.5px;
-        border-color: ${props => props.theme.colors.BackgroundLinearGradient1};
+        border-color: ${props => props.theme.colors.BackgroundLinearGradient1} !important;
     }
 `
 
@@ -152,6 +196,14 @@ export const NavMobile = styled.footer`
     }
 
     &.light{
+        background: ${props => props.theme.colors.lightTheme.VeryLightGray};
+    }
+
+    &.dark{
+        background: ${props => props.theme.colors.darkTheme.VeryDarkDesaturatedBlue};
+    }
+
+    @media screen and (prefers-color-scheme: light) {
         background: ${props => props.theme.colors.lightTheme.VeryLightGray};
     }
 `

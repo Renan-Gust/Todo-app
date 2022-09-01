@@ -3,7 +3,7 @@ import { createContext, useContext, useState,useEffect } from "react"
 export const ThemeContext = createContext({})
 
 export const ThemeContextProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
-    const [theme, setTheme] = useState<"dark" | "light">("dark")
+    const [theme, setTheme] = useState<"dark" | "light" | null>(null)
 
     useEffect(() => {
         const themeStorage = localStorage.getItem("theme")
