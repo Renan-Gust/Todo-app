@@ -1,3 +1,5 @@
+import { ReactNode, useState } from 'react'
+
 import * as C from './styles'
 
 import { useTheme, useTasks } from '../../contexts/Context'
@@ -8,24 +10,77 @@ export function Tasks(){
     const { theme } = useTheme()
     const { tasks, setTasks } = useTasks()
 
-    function handleActive(){
+    const [completedTasks, setCompletedTasks] = useState<TaskType[]>([])
+    const [activeTasks, setActiveTasks] = useState<TaskType[]>([])
+    const [chosenContent, setChosenContent] = useState<'all' | 'active' | 'completed'>('all')
+
+    function handleActiveTask(element: any){
         const newTasks = tasks.filter((task: TaskType) => task.completed !== true)
-        setTasks(newTasks)
+
+        setActiveTasks(newTasks)
+        setCompletedTasks([])
+        setChosenContent('active')
+
+        addClass(element)
     }
 
-    function handleCompleted(){
-        // const test = [...tasks]
+    function handleCompletedTask(element: any){
         const newTasks = tasks.filter((task: TaskType) => task.completed === true)
-        setTasks(newTasks)
+
+        setCompletedTasks(newTasks)
+        setActiveTasks([])
+        setChosenContent('completed')
+
+        addClass(element)
+    }
+
+    function handleAllTask(element: any){
+        setActiveTasks([])
+        setCompletedTasks([])
+        setChosenContent('all')
+
+        addClass(element)
+    }
+
+    function handleClearCompletedTask(){
+        const clearCompletedTasks = tasks.map((task: TaskType) => {
+            return {...task, completed: false}
+        })
+
+        setTasks(clearCompletedTasks)
+        setCompletedTasks([])
+    }
+
+    function addClass(element: any){
+        document.querySelectorAll("nav p").forEach(item => item.classList.remove("selected"))
+        // element.target.classList.add("selected")
+        
+        document.querySelectorAll("nav p").forEach(item => {
+            if(item.textContent == element.target.innerText) item.classList.add("selected")
+        })
     }
 
     return(
         <>
             <C.Container className={theme}>
                 <C.Tasks>
-                    {tasks.map((task: TaskType) => (
-                        <Task task={task} key={task.id} />
-                    ))}
+                    {chosenContent == 'active' &&
+                        activeTasks.map((task: TaskType) => (
+                            <Task task={task} key={task.id} />
+                        ))
+                    }
+
+                    {chosenContent == 'completed' &&
+                        completedTasks.map((task: TaskType) => (
+                            <Task task={task} key={task.id} />
+                        ))
+                    }
+
+                    {chosenContent == 'all' &&
+                        tasks.map((task: TaskType) => (
+                            <Task task={task} key={task.id} />
+                        ))
+                    }
                 </C.Tasks>
 
                 <C.Footer>
@@ -33,32 +88,37 @@ export function Tasks(){
                         <div className="itemsLeft">{tasks.length} items left</div>
                         <C.Nav className={theme}>
                             <C.NavContent className="nav">
-                                <p className="all selected">All</p>
-                                <p className="active" onClick={handleActive}>Active</p>
-                                <p className="completed" onClick={handleCompleted}>Completed</p>
+                                <p className="all selected" onClick={element => handleAllTask(element)}>All</p>
+                                <p className="active" onClick={element => handleActiveTask(element)}>Active</p>
+                                <p className="completed" onClick={element => handleCompletedTask(element)}>Completed</p>
                             </C.NavContent>
                             <C.NavContent >
-                                <p className="clearCompleted">Clear Completed</p>
+                                <p className="clearCompleted" onClick={handleClearCompletedTask}>Clear Completed</p>
                             </C.NavContent>
                         </C.Nav>
                     </C.FooterContent>
                 </C.Footer>
             </C.Container>
 
-            <NavMobile theme={theme} />
+            <NavMobile 
+                theme={theme}
+                handleAllTask={handleAllTask} 
+                handleActiveTask={handleActiveTask}
+                handleCompletedTask={handleCompletedTask}
+            />
         </>
     )
 }
 
-function NavMobile({ theme }: any) {
+function NavMobile({ theme, handleAllTask, handleActiveTask, handleCompletedTask }: any) {
     return(
         <C.NavMobile className={theme}>
             <C.Content>
                 <C.Nav className={theme}>
                     <C.NavContent>
-                        <p className="all selected">All</p>
-                        <p className="active">Active</p>
-                        <p className="completed">Completed</p>
+                        <p className="all selected" onClick={element => handleAllTask(element)}>All</p>
+                        <p className="active" onClick={element => handleActiveTask(element)}>Active</p>
+                        <p className="completed" onClick={element => handleCompletedTask(element)}>Completed</p>
                     </C.NavContent>
                 </C.Nav>
             </C.Content>
