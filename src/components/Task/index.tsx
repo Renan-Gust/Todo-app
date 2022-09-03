@@ -7,6 +7,8 @@ import iconInfo from '/images/icon-info.svg'
 import { useTheme, useTasks } from '../../contexts/Context'
 import { TaskType } from '../../types/tasks'
 
+import { Link } from 'react-router-dom'
+
 type TaskProps = {
     task: TaskType
 }
@@ -45,7 +47,9 @@ export const Task = ({ task }: TaskProps) => {
                 alt="icon cross" 
                 onClick={() => handleDeleteTask(task.id)} 
             />
-            <img className="infoTask" src={iconInfo} alt="icon info" />
+            <Link to={`/detail/${task.title}`}>
+                <img className="infoTask" src={iconInfo} alt="icon info" />
+            </Link>
         </C.Task>
     )
 }

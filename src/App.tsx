@@ -1,7 +1,9 @@
 import { Header } from "./components/Header"
-import { CreateTask } from "./components/CreateTask"
 import { Tasks } from "./components/Tasks"
+import { TaskDetails } from "./components/TaskDetails"
 import { useTheme } from "./contexts/Context"
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App(){
     const { theme } = useTheme()
@@ -14,8 +16,12 @@ function App(){
 
                     <div className="todo-wrapper">
                         <Header />
-                        <CreateTask />
-                        <Tasks />
+                        <BrowserRouter>
+                            <Routes>
+                                <Route path="/" element={<Tasks />} />
+                                <Route path="/detail/:taskTitle" element={<TaskDetails />} />
+                            </Routes>
+                        </BrowserRouter>
                     </div>
                 </div>
             </div>

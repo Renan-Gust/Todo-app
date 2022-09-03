@@ -1,10 +1,11 @@
-import { ReactNode, useState } from 'react'
+import { useState } from 'react'
 
 import * as C from './styles'
 
 import { useTheme, useTasks } from '../../contexts/Context'
 import { Task } from '../Task'
 import { TaskType } from '../../types/tasks'
+import { CreateTask } from '../CreateTask'
 
 export function Tasks(){
     const { theme } = useTheme()
@@ -62,6 +63,8 @@ export function Tasks(){
 
     return(
         <>
+            <CreateTask />
+
             <C.Container className={theme}>
                 <C.Tasks>
                     {chosenContent == 'active' &&
