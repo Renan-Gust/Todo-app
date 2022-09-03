@@ -11,7 +11,7 @@
 </p>
 
 <h1 align="center">
-    <img src="https://github.com/Renan-Gust/Todo-app/blob/main/public/images/todo-app.png" alt="todo-app" />
+    <img src="https://github.com/Renan-Gust/Todo-app/blob/main/public/images/todo-app.jpg" alt="todo-app" />
 </h1>
 
 <br>
