@@ -17,13 +17,13 @@ export const Task = ({ task }: TaskProps) => {
     const { theme } = useTheme()
     const { tasks, setTasks } = useTasks()
 
-    function handleDeleteTask(id?: string){
-        const newTasks = tasks.filter((task: TaskType) => task.id !== id)
-        setTasks(newTasks)
+    function handleDeleteTask(id: string){
+        const newTasks = tasks!.filter((task: TaskType) => task.id !== id)
+        setTasks!(newTasks)
     }
 
-    function handleCompletedTask(id?: string){
-        const taskCompleted = tasks.map((task: TaskType) => {
+    function handleCompletedTask(id: string){
+        const taskCompleted = tasks!.map((task: TaskType) => {
             if(task.id === id){
                 return {...task, completed: !task.completed}
             }
@@ -31,12 +31,12 @@ export const Task = ({ task }: TaskProps) => {
             return task
         })
 
-        setTasks(taskCompleted)
+        setTasks!(taskCompleted)
     }
 
     return(
         <C.Task className={`${task.completed && 'completed'} ${theme}`}>
-            <C.Checked onClick={() => handleCompletedTask(task.id)}>
+            <C.Checked onClick={() => handleCompletedTask(task.id!)}>
                 {task.completed && <img src={iconCheck} alt="icon cross" />}
             </C.Checked>
             <p>{task.title}</p>
@@ -45,7 +45,7 @@ export const Task = ({ task }: TaskProps) => {
                 className="deleteTask" 
                 src={iconCross} 
                 alt="icon cross" 
-                onClick={() => handleDeleteTask(task.id)} 
+                onClick={() => handleDeleteTask(task.id!)} 
             />
             <Link to={`/detail/${task.title}`}>
                 <img className="infoTask" src={iconInfo} alt="icon info" />

@@ -15,10 +15,10 @@ export function Header() {
 
     function handleChangeTheme(){
         if(theme === "dark"){
-            setTheme("light")
+            setTheme!("light")
             localStorage.setItem("theme", JSON.stringify("light"))
         } else{
-            setTheme("dark")
+            setTheme!("dark")
             localStorage.setItem("theme", JSON.stringify("dark"))
         }
     }

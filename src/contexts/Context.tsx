@@ -4,7 +4,7 @@ import { TaskType, TasksType, ThemeType } from "../types/tasks"
 export const Context = createContext({})
 
 export const ContextProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
-    const [theme, setTheme] = useState<"dark" | "light" | null>(null)
+    const [theme, setTheme] = useState<ThemeType>()
     const [tasks, setTasks] = useState<TaskType[]>([
         {
             id: "1",

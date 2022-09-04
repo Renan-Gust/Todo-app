@@ -15,7 +15,7 @@ export function CreateTask(){
     function handleCreateTask(e: KeyboardEvent){
         if(e.key === "Enter"){
             const newTask = [
-                ...tasks,
+                ...tasks!,
                 {
                     id: uuidv4(),
                     title: title,
@@ -23,7 +23,7 @@ export function CreateTask(){
                 }                
             ]
 
-            setTasks(newTask)
+            setTasks!(newTask)
             setTitle("")
         }
     }
