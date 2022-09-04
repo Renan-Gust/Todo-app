@@ -14,17 +14,19 @@ export function CreateTask(){
 
     function handleCreateTask(e: KeyboardEvent){
         if(e.key === "Enter"){
-            const newTask = [
-                ...tasks!,
-                {
-                    id: uuidv4(),
-                    title: title,
-                    completed: false
-                }                
-            ]
-
-            setTasks!(newTask)
-            setTitle("")
+            if(title !== ''){
+                const newTask = [
+                    ...tasks!,
+                    {
+                        id: uuidv4(),
+                        title: title,
+                        completed: false
+                    }                
+                ]
+    
+                setTasks!(newTask)
+                setTitle("")
+            }
         }
     }
 
