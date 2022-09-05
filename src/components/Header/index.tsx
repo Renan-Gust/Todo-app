@@ -14,13 +14,24 @@ export function Header() {
     }
 
     function handleChangeTheme(){
-        if(theme === "dark"){
-            setTheme!("light")
-            localStorage.setItem("theme", JSON.stringify("light"))
+        if(theme){
+            if(theme === "dark"){
+                changeTheme("light")
+            } else{
+                changeTheme("dark")
+            }
         } else{
-            setTheme!("dark")
-            localStorage.setItem("theme", JSON.stringify("dark"))
+            if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+                changeTheme("light")
+            } else{
+                changeTheme("dark")
+            }
         }
+    }
+
+    function changeTheme(theme: "dark" | "light"){
+        setTheme!(theme)
+        localStorage.setItem("theme", JSON.stringify(theme))
     }
 
     return(
