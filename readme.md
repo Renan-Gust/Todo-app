@@ -24,6 +24,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [TypeScript](https://www.typescriptlang.org/)
 - [React](https://reactjs.org)
 - [Vite](https://vitejs.dev/)
+- [Styled components](https://styled-components.com/)
 
 ## 🚀 Como executar
 
